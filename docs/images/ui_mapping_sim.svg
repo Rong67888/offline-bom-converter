@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Sanitized horizontal mapping matrix preview</title>
+  <desc id="desc">A fictional interface diagram showing Excel columns as horizontal cards and mapping properties as vertical rows.</desc>
+  <rect width="1280" height="720" fill="#edf3f7"/>
+  <rect x="24" y="20" width="1232" height="92" rx="8" fill="#173a56"/>
+  <text x="52" y="63" font-family="Segoe UI, Microsoft YaHei" font-size="30" font-weight="700" fill="#ffffff">BOM 格式转换工具</text>
+  <text x="52" y="92" font-family="Segoe UI, Microsoft YaHei" font-size="16" fill="#d6e7f4">通用审核模式 · 所有文件仅在本机离线处理 · 以下内容均为虚构 SIM 数据</text>
+  <rect x="24" y="128" width="1232" height="62" rx="8" fill="#ffffff" stroke="#c9d8e3"/>
+  <text x="45" y="153" font-family="Segoe UI, Microsoft YaHei" font-size="14" font-weight="700" fill="#20384a">文件</text>
+  <text x="45" y="177" font-family="Segoe UI, Microsoft YaHei" font-size="15" fill="#29475d">sim_complex_headers.xlsx</text>
+  <text x="315" y="177" font-family="Segoe UI, Microsoft YaHei" font-size="15" fill="#8b6100">陌生格式</text>
+  <text x="470" y="177" font-family="Segoe UI, Microsoft YaHei" font-size="15" fill="#29475d">表头第 4–5 行 · 数据第 6 行起</text>
+  <rect x="24" y="206" width="1232" height="482" rx="8" fill="#ffffff" stroke="#c9d8e3"/>
+  <text x="44" y="238" font-family="Segoe UI, Microsoft YaHei" font-size="18" font-weight="700" fill="#20384a">检查并确认字段</text>
+  <rect x="904" y="219" width="150" height="32" rx="5" fill="#ffffff" stroke="#7899b0"/>
+  <text x="920" y="240" font-family="Segoe UI, Microsoft YaHei" font-size="13" fill="#526b7d">搜索来源列或字段</text>
+  <rect x="1068" y="219" width="166" height="32" rx="5" fill="#e7eff5" stroke="#7899b0"/>
+  <text x="1088" y="240" font-family="Segoe UI, Microsoft YaHei" font-size="13" fill="#20384a">只显示需要确认</text>
+
+  <g font-family="Segoe UI, Microsoft YaHei" font-size="13">
+    <rect x="44" y="270" width="150" height="48" fill="#dce7ef" stroke="#b8cad6"/><text x="60" y="300" font-weight="700" fill="#18324a">属性</text>
+    <rect x="194" y="270" width="170" height="48" fill="#cfe3f2" stroke="#8bafc6"/><text x="268" y="300" text-anchor="middle" font-weight="700" fill="#18324a">A 列</text>
+    <rect x="364" y="270" width="170" height="48" fill="#cfe3f2" stroke="#8bafc6"/><text x="449" y="300" text-anchor="middle" font-weight="700" fill="#18324a">B 列</text>
+    <rect x="534" y="270" width="170" height="48" fill="#cfe3f2" stroke="#8bafc6"/><text x="619" y="300" text-anchor="middle" font-weight="700" fill="#18324a">G 列</text>
+    <rect x="704" y="270" width="170" height="48" fill="#cfe3f2" stroke="#8bafc6"/><text x="789" y="300" text-anchor="middle" font-weight="700" fill="#18324a">H 列</text>
+    <rect x="874" y="270" width="170" height="48" fill="#cfe3f2" stroke="#8bafc6"/><text x="959" y="300" text-anchor="middle" font-weight="700" fill="#18324a">I 列</text>
+    <rect x="1044" y="270" width="170" height="48" fill="#cfe3f2" stroke="#8bafc6"/><text x="1129" y="300" text-anchor="middle" font-weight="700" fill="#18324a">L 列</text>
+
+    <g fill="#f5f8fa" stroke="#d7e1e8">
+      <rect x="44" y="318" width="150" height="54"/><rect x="44" y="372" width="150" height="54"/><rect x="44" y="426" width="150" height="54"/>
+      <rect x="44" y="480" width="150" height="54"/><rect x="44" y="534" width="150" height="54"/><rect x="44" y="588" width="150" height="54"/>
+    </g>
+    <g fill="#20384a" font-weight="700">
+      <text x="58" y="350">完整表头</text><text x="58" y="404">示例值</text><text x="58" y="458">识别为</text>
+      <text x="58" y="512">最终写入</text><text x="58" y="566">识别把握</text><text x="58" y="620">处理状态</text>
+    </g>
+
+    <g stroke="#d7e1e8">
+      <rect x="194" y="318" width="170" height="324" fill="#ffffff"/><rect x="364" y="318" width="170" height="324" fill="#ffffff"/>
+      <rect x="534" y="318" width="170" height="324" fill="#ffffff"/><rect x="704" y="318" width="170" height="324" fill="#ffffff"/>
+      <rect x="874" y="318" width="170" height="324" fill="#ffffff"/><rect x="1044" y="318" width="170" height="324" fill="#fff8df"/>
+      <path d="M194 372H1214M194 426H1214M194 480H1214M194 534H1214M194 588H1214"/>
+    </g>
+
+    <g fill="#20384a">
+      <text x="206" y="350">序号 / Row</text><text x="376" y="350">零件名称 / Part Name</text><text x="546" y="350">Size (mm) / X</text>
+      <text x="716" y="350">Size (mm) / Y</text><text x="886" y="350">Size (mm) / Z</text><text x="1056" y="350">附加观察 / Unmapped</text>
+      <text x="206" y="404">1</text><text x="376" y="404">星云支架</text><text x="546" y="404">420</text><text x="716" y="404">180</text><text x="886" y="404">65</text><text x="1056" y="404">Review me</text>
+      <text x="206" y="458" font-weight="700">序号</text><text x="376" y="458" font-weight="700">零件名称</text><text x="546" y="458" font-weight="700">长度</text>
+      <text x="716" y="458" font-weight="700">宽度</text><text x="886" y="458" font-weight="700">高度</text><text x="1056" y="458" font-weight="700">忽略</text>
+      <text x="206" y="512">Row No.</text><text x="376" y="512">Part Name</text><text x="546" y="512">Length (mm)</text><text x="716" y="512">Width (mm)</text><text x="886" y="512">Height (mm)</text><text x="1056" y="512">—</text>
+      <text x="206" y="566">高</text><text x="376" y="566">高</text><text x="546" y="566">高</text><text x="716" y="566">高</text><text x="886" y="566">高</text><text x="1056" y="566">低</text>
+    </g>
+    <g font-weight="700">
+      <text x="206" y="620" fill="#1f7a4d">已匹配</text><text x="376" y="620" fill="#1f7a4d">已匹配</text><text x="546" y="620" fill="#1f7a4d">已匹配</text>
+      <text x="716" y="620" fill="#1f7a4d">已匹配</text><text x="886" y="620" fill="#1f7a4d">已匹配</text><text x="1056" y="620" fill="#946200">需要确认</text>
+    </g>
+  </g>
+  <rect x="44" y="654" width="1170" height="12" rx="6" fill="#d6e1e8"/><rect x="44" y="654" width="430" height="12" rx="6" fill="#7899b0"/>
+</svg>

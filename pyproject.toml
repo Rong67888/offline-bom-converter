@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "offline-bom-converter"
+version = "0.2.0"
+description = "Privacy-safe public preview of an offline XLSX BOM converter"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.0,<7"]
+
+[project.scripts]
+bom-converter = "bom_converter.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+bom_converter = ["data/*.json"]

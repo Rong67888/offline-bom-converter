@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "seed": 20260827,
+  "privacy": {
+    "all_values_fictional": true,
+    "all_media_generated_by_code": true,
+    "contains_real_workbook_content": false,
+    "contains_external_links": false,
+    "contains_comments": false,
+    "contains_macros": false
+  },
+  "files": {
+    "sim_single_header.xlsx": {
+      "sha256": "8039438bbfc99d1c4c92e0e86344b96dc3d63b84e8a41e026d5c49497b3bd4d7",
+      "features": ["single_header", "fictional_quick_profile", "dimension_string", "weight_unit_g", "one_generated_image"]
+    },
+    "sim_complex_headers.xlsx": {
+      "sha256": "361bb32b8b89470ef0fa80d08cc207cddca51656c48863b4e1a8e950bf6d1fbe",
+      "features": ["title_rows_before_header", "two_row_bilingual_header", "merged_parent_header", "size_xyz_mm", "extra_unmapped_column", "two_generated_images"]
+    },
+    "sim_multisheet_levels.xlsx": {
+      "sha256": "dc940234d86457cdf0983188cdb7448f9204166d05699520bd2dc0597f1e6192",
+      "features": ["multiple_bom_sheets", "non_bom_overview_and_notes", "merged_level_group", "levels_l1_to_l13", "markers_1_check_and_y", "generated_images_follow_source_rows"]
+    }
+  }
+}
