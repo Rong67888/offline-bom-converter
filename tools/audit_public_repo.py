@@ -14,7 +14,7 @@ from zipfile import BadZipFile, ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_FILE_BYTES = 10 * 1024 * 1024
-TEXT_SUFFIXES = {".py", ".md", ".txt", ".toml", ".json", ".svg", ".gitignore"}
+TEXT_SUFFIXES = {".py", ".md", ".txt", ".toml", ".json", ".svg", ".ps1", ".bat", ".gitignore"}
 ALLOWED_XLSX = {
     "assets/public_demo_template.xlsx",
     "samples/simulated/sim_single_header.xlsx",
@@ -29,6 +29,7 @@ ALLOWED_IMAGES = {
 }
 FORBIDDEN_SUFFIXES = {".exe", ".dll", ".pdf", ".xls", ".xlsm", ".xlsb", ".doc", ".docx", ".ppt", ".pptx"}
 FORBIDDEN_NAMES = {"mapping_rules.json", ".env"}
+RUNTIME_LOCAL_FILES = {"github_upload_result.txt"}
 FORBIDDEN_DIRS = {
     "dist", "build", "outputs", ".tmp_artifact", "teacher_test_package",
     "version_archive", "previous_release", "__pycache__", ".pytest_cache",
@@ -181,9 +182,9 @@ def image_audit(path: Path, violations: list[str], inventory: dict[str, object])
 
 def tracked_files() -> list[str]:
     completed = subprocess.run(
-        ["git", "ls-files"], cwd=ROOT, check=True, capture_output=True, text=True, encoding="utf-8"
+        ["git", "ls-files", "-z"], cwd=ROOT, check=True, capture_output=True
     )
-    return [line.strip() for line in completed.stdout.splitlines() if line.strip()]
+    return [name for name in completed.stdout.decode("utf-8").split("\0") if name]
 
 
 def main() -> int:
@@ -195,8 +196,13 @@ def main() -> int:
     for path in ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts:
             continue
-        files.append(path)
         rel = relative(path)
+        if rel in RUNTIME_LOCAL_FILES:
+            if path.stat().st_size > MAX_FILE_BYTES:
+                violations.append(f"{rel}: runtime result exceeds {MAX_FILE_BYTES} bytes")
+            scan_text(rel, path.read_text(encoding="utf-8-sig", errors="strict"), violations)
+            continue
+        files.append(path)
         parts = set(path.relative_to(ROOT).parts)
         if parts & FORBIDDEN_DIRS:
             violations.append(f"{rel}: forbidden directory")

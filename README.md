@@ -144,6 +144,12 @@ run.py                     GUI entry point
 
 进一步设计说明见 [Architecture](docs/ARCHITECTURE.md)，隐私与审计说明见 [Privacy and testing](docs/PRIVACY_AND_TESTING.md)，第三方依赖见 [Third-party notices](THIRD_PARTY_NOTICES.md)。
 
+## 维护者私有上传助手 / Maintainer-only private upload helper
+
+仓库根目录提供`双击上传到GitHub私有仓库.bat`和`上传到GitHub私有仓库.ps1`。它们只用于维护者把当前已提交的`main`分支上传到预先指定的Private仓库；运行前会重新执行全部测试、Git跟踪文件审计和隐私检查。脚本拒绝脏工作区、错误账号、错误远端或非Private仓库，不使用强制推送，也不创建Release。运行结果写入被Git忽略的`github_upload_result.txt`。
+
+The root upload helpers are maintainer-only. Before contacting GitHub they rerun the complete public test suite, inspect the tracked-file set, and execute the privacy gate. They refuse a dirty worktree, unexpected account or remote, and any repository that is not Private. They never force-push or create a Release; the local result file is ignored by Git.
+
 ## 已知限制 / Known limitations
 
 - 表头自动推荐仍可能对缩写、低信息量列或高度定制格式给出低把握结果；此时必须人工确认。

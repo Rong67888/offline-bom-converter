@@ -242,6 +242,27 @@ class PublicFeatureTests(unittest.TestCase):
         for index in range(1, 6):
             self.assertIsNone(re.search(rf"\bbom{index}\b", source_text, re.IGNORECASE))
 
+    def test_private_upload_helpers_are_guarded_and_non_destructive(self) -> None:
+        ps1 = (ROOT / "上传到GitHub私有仓库.ps1").read_text(encoding="utf-8-sig")
+        bat = (ROOT / "双击上传到GitHub私有仓库.bat").read_text(encoding="utf-8")
+        self.assertIn("Rong67888", ps1)
+        self.assertIn("offline-bom-converter", ps1)
+        self.assertIn("--private", ps1)
+        self.assertIn("auth status", ps1)
+        self.assertIn("--require-git-tracked", ps1)
+        self.assertIn("status', '--porcelain", ps1)
+        self.assertIn("push --set-upstream origin main", ps1)
+        self.assertIn("LocalCheckOnly", ps1)
+        self.assertIn("github_upload_result.txt", ps1)
+        self.assertIn("上传成功，仓库仍为Private", ps1)
+        self.assertIn("existingDefaultBranch", ps1)
+        forbidden = ("--force", "--public", "repo delete", "release create", "release upload")
+        for fragment in forbidden:
+            self.assertNotIn(fragment, ps1.casefold())
+        self.assertIn("%~dp0", bat)
+        self.assertIn("powershell.exe", bat.casefold())
+        self.assertIn("pause", bat.casefold())
+
 
 if __name__ == "__main__":
     unittest.main()

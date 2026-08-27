@@ -14,6 +14,7 @@
 - Replaced the internal default template reference with a new public demo template generated from scratch.
 - Added three deterministic SIM workbooks covering single/multi-row headers, bilingual XYZ, multi-sheet selection, L1–L13, merged cells, extra columns, and generated placeholder images.
 - Added a bilingual portfolio README, architecture notes, privacy/testing documentation, third-party notices, sanitized UI previews, public tests, and a repository audit tool.
+- Added a double-click BAT and guarded PowerShell helper for a later user-operated Private GitHub upload; the helper reruns tests and privacy checks before any network action.
 - Adapted namespace serialization in the public copy so templates using explicit OpenXML prefixes remain valid.
 - Detected one unsafe background-screen capture during screenshot production, deleted it before Git initialization, and replaced it with a text-only SVG containing only fictional values. The unsafe capture was never committed or uploaded.
 
@@ -29,6 +30,8 @@
 | `README.md`, `docs/`, `SECURITY.md` | created | portfolio, architecture, privacy and safe-reporting guidance | understandable public entry point |
 | `THIRD_PARTY_NOTICES.md` | created | record direct build dependencies and licenses | license provenance is explicit |
 | `.gitignore` | created | exclude local state, outputs, binaries and sensitive categories | reduces accidental commits |
+| `上传到GitHub私有仓库.ps1` | created | perform a repeatable, guarded Private upload after local release gates pass | user can upload after switching networks without Codex staying connected |
+| `双击上传到GitHub私有仓库.bat` | created | provide a double-click launcher that preserves the result window | suitable for non-programmers and paths containing spaces or Chinese text |
 
 ## 验证与测试结果 / Verification
 
@@ -36,8 +39,8 @@
 - Visual workbook review: completed for every sheet; no clipped key headers or unreadable sections were observed.
 - Source quick conversion: 3 rows and 1 image, no verification error.
 - Confirmed bilingual XYZ conversion: 3 rows and 2 images, no verification error.
-- Full public automated suite: 20/20 passed with `PYTHONDONTWRITEBYTECODE=1`.
-- Repository privacy/metadata scan: passed with 0 violations across 44 files before this status update.
+- Full public automated suite: 21/21 passed with `PYTHONDONTWRITEBYTECODE=1`, including upload-helper safety assertions.
+- Repository privacy/metadata scan: passed with 0 violations across 46 tracked files after adding the upload helpers.
 - XLSX package audit: 4 explicitly allowed files; 0 hidden sheets, comments, external relationships, custom XML parts, or macro parts.
 - Image audit: 2 PNG previews have 0 text-metadata chunks; 1 SVG has 0 external resources.
 - Credential, local-path, excluded-identifier, large-file, and unexpected-binary scans: 0 findings in the final scanned set.
@@ -46,7 +49,7 @@
 - Public EXE build/start: not performed; no executable will be uploaded.
 - GitHub CLI: version `2.98.0` is installed locally. Its authenticated remote state has intentionally not been queried during the offline phase.
 - Local release gate on 2026-08-28: 20/20 tests passed and the repository audit passed with 0 violations across 44 files before Git initialization.
-- Fresh local Git history: `main` has one root commit containing the 44 audited files; the worktree is clean and no remote is configured.
+- Fresh local Git history: `main` contains the audited public files; the worktree is clean and no remote is configured.
 - Network state: no GitHub repository lookup, creation, visibility change, Release, or upload has been attempted. The intended remote remains `Rong67888/offline-bom-converter` as Private.
 
 ## 当前使用方法 / Usage
@@ -65,6 +68,7 @@
 - public demo template and three synthetic workbooks;
 - sanitized UI previews;
 - public tests and privacy audit tool;
+- guarded PowerShell upload helper and double-click BAT launcher;
 - bilingual documentation and third-party notices.
 
 ## 已知问题与限制 / Known limitations
@@ -78,7 +82,7 @@
 
 ## 下一步计划 / Next steps
 
-- P0: wait for the user to reply `热点已打开，可以继续`, then re-run the final privacy gate and perform the GitHub login check, Private repository creation, and push in one short network window.
+- P0: disconnect the current network, open the hotspot, and double-click `双击上传到GitHub私有仓库.bat`; the helper will re-run all local gates before checking GitHub and pushing.
 - P1: review the private remote's file list and visibility, then update this status with the repository URL and commit SHA.
 - P2: after ownership and license confirmation, decide whether the repository may become public; executable release remains a separate decision.
 
@@ -91,4 +95,4 @@
 
 ## 交接与恢复说明 / Handoff prompt
 
-Continue from the privacy-safe public export repository. GitHub CLI 2.98.0 is installed, but no authenticated remote query, repository creation, visibility change, Release, or upload has been attempted. The offline gate passed with 20/20 tests and 0 privacy violations. Confirm the fresh local `main` commit and clean tracked-file audit. Before any GitHub or Internet operation, tell the user exactly `即将连接GitHub，请打开热点。` and wait for the exact reply `热点已打开，可以继续`. Then re-run the final audit, check authentication without printing tokens, create `Rong67888/offline-bom-converter` as Private, push `main`, and verify visibility and the first commit in one network window. Stop if an unexpected workbook, binary, report, rule file, local path, identifier, or credential appears. Do not create a Release or upload an EXE. Keep the remote Private until ownership and license are explicitly confirmed.
+Continue from the privacy-safe public export repository. GitHub CLI 2.98.0 is installed, but Codex has not queried authentication, created a repository, changed visibility, created a Release, or uploaded anything. The offline gate passed with 21/21 tests and 0 privacy violations across 46 tracked files. The user cannot keep Codex connected while using the GitHub-capable hotspot, so the root BAT and PowerShell helper perform the guarded upload later without Codex. Confirm the local `main` worktree is clean and run the PowerShell helper with `-LocalCheckOnly` for offline validation. The user should then switch to the hotspot and double-click `双击上传到GitHub私有仓库.bat`. The helper must stop on any failed test, privacy finding, wrong account, wrong remote, or non-Private repository. Do not create a Release, upload an EXE, force-push, or change visibility. Keep the repository Private until ownership and license are explicitly confirmed.
